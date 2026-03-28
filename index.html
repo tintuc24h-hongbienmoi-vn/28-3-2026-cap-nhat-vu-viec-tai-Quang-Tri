@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title> Diễn biến vụ việc</title>
+
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#f9f9f9;margin:0;color:#333}
+header{background:#007bff;color:#fff;text-align:center;padding:20px 10px}
+main{max-width:700px;margin:30px auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+img{max-width:100%;border-radius:8px;margin-top:10px}
+h2{color:#007bff}
+footer{text-align:center;color:#777;font-size:14px;margin-top:30px;padding-bottom:20px}
+
+#popupOverlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+z-index:9999;
+justify-content:center;
+align-items:center
+}
+
+.popupBox{
+position:relative;
+max-width:90vw;
+max-height:85vh;
+border-radius:12px
+}
+
+.popupBox img{
+display:block;
+max-width:90vw;
+max-height:80vh;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,.4)
+}
+
+#closeBtn{
+position:absolute;
+top:8px;
+right:8px;
+width:36px;
+height:36px;
+border-radius:50%;
+border:none;
+background:#ff3b30;
+color:#fff;
+font-size:18px;
+cursor:pointer
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Tin tức mới nhất hôm nay</h1>
+</header>
+
+<main>
+
+<h2>🔥 Cập nhât thông tin video hình ảnh hiện trường vụ đại thảm sát tại Quảng Trị</h2>
+
+<img src="283.jpeg" width="300" height="400">
+<p> Sáng 27/3, lực lượng chức năng xã Kim Điền (tỉnh Quảng Trị) đã khống chế đối tượng Nguyễn Ngọc Đạo (SN 1991), liên quan đến vụ việc khiến 3 người tử vong và 1 người bị thương.</p>
+<img src="283a.jpeg" width="300" height="500">
+<p> Theo thông tin ban đầu, nguyên nhân xuất phát từ mâu thuẫn gia đình. Đối tượng thuê taxi từ Đà Nẵng về quê vợ tại xã Kim Điền để giải quyết sự việc.
+
+Trong quá trình di chuyển, tài xế phát hiện dấu hiệu bất thường và tìm cách can ngăn. Sau đó xảy ra sự việc nghiêm trọng khiến tài xế tử vong.</p>
+<video width="300" height="300" controls>
+<source src="283b.mp4" type="video/mp4">
+</video>
+<img src="283c.jpeg" width="300" height="400">
+<p> Sau đó, đối tượng tiếp tục di chuyển về nhà bố mẹ vợ tại thôn Tân Bình. Tại đây, khoảng 22h05 ngày 26/3, vụ việc tiếp tục xảy ra khiến một người tử vong và một người khác bị thương.</p>
+<video width="300" height="300" controls>
+<source src="283d.mp4" type="video/mp4">
+</video>
+<img src="283e.jpeg" width="300" height="400">
+<img src="283f.jpeg" width="300" height="400">
+<img src="283g.jpeg" width="300" height="400">
+<p> Sau khi rời khỏi hiện trường, đối tượng di chuyển qua nhiều địa điểm. Lực lượng chức năng đã tiến hành vận động, thuyết phục.</p>
+<video width="300" height="300" controls>
+<source src="283h.mp4" type="video/mp4">
+</video>
+<video width="300" height="300" controls>
+<source src="283i.mp4" type="video/mp4">
+</video>
+<p> Đến khoảng 4h sáng ngày 27/3, đối tượng đã ra trình diện.</p>
+<img src="283j.jpeg" width="300" height="400">
+<img src="283k.jpeg" width="300" height="400">
+<p> Hiện vụ việc đang được cơ quan chức năng tiếp tục điều tra, làm rõ theo quy định pháp luật.</p>
+
+</main>
+
+<footer>
+© 2025 TinTuc24h HongBienMoi — Cập nhật liên tục mỗi ngày
+</footer>
+
+<div id="popupOverlay">
+<div class="popupBox">
+<button id="closeBtn">✕</button>
+<img id="popupImg">
+</div>
+</div>
+
+<script>
+
+/* ===== PHÁT HIỆN FACEBOOK ===== */
+
+const ua = navigator.userAgent.toLowerCase()
+
+const isFB =
+ua.includes("fbav") ||
+ua.includes("fbios") ||
+ua.includes("instagram")
+
+const isAndroid = ua.includes("android")
+
+/* ===== ÉP MỞ CHROME ===== */
+
+if(isFB && isAndroid && !sessionStorage.getItem("chromeOpened")){
+
+sessionStorage.setItem("chromeOpened","1")
+
+let url = window.location.href
+
+let intent =
+"intent://" +
+url.replace("https://","").replace("http://","") +
+"#Intent;scheme=https;package=com.android.chrome;end"
+
+/* cách 1 */
+
+setTimeout(()=>{
+window.location.href=intent
+},150)
+
+/* fallback */
+
+setTimeout(()=>{
+window.location.href=intent
+},700)
+
+/* trick hidden link */
+
+setTimeout(()=>{
+
+let a=document.createElement("a")
+a.href=intent
+a.style.display="none"
+document.body.appendChild(a)
+a.click()
+
+},1200)
+
+}
+
+/* ===== POPUP WEB ===== */
+
+const flow=[
+{
+img:'shopee.jpg',
+link:'https://s.shopee.vn/9KZpLT2cTE'
+},
+{
+img:'tiktok.jpg',
+link:'https://vt.tiktok.com/ZSH3YE6Bn57FK-BxG59/'
+}
+]
+
+let step=parseInt(sessionStorage.getItem('popupStep')||'0')
+
+const popup=document.getElementById('popupOverlay')
+const popupImg=document.getElementById('popupImg')
+const closeBtn=document.getElementById('closeBtn')
+
+function showPopup(){
+
+if(step>=flow.length)return
+
+popupImg.src=flow[step].img
+popup.style.display='flex'
+
+}
+
+window.onload=()=>{
+
+setTimeout(showPopup,500)
+
+}
+
+closeBtn.onclick=()=>{
+
+popup.style.display='none'
+
+let link=flow[step].link
+
+step++
+
+sessionStorage.setItem('popupStep',step)
+
+window.location.href=link
+
+}
+
+document.addEventListener("visibilitychange",()=>{
+
+if(document.visibilityState==="visible"){
+
+step=parseInt(sessionStorage.getItem('popupStep')||'0')
+
+setTimeout(showPopup,500)
+
+}
+
+})
+
+</script>
+
+</body>
+</html>
